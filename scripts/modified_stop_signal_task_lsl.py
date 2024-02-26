@@ -54,7 +54,7 @@ response_outlet = StreamOutlet(response_info)  # Broadcast the stream.
 _thisDir = os.path.dirname(os.path.abspath(__file__))
 # Store info about the experiment session
 psychopyVersion = '2023.2.3'
-expName = 'modified_stop_signal_task_v2_pseudorandom'  # from the Builder filename that created this script
+expName = 'modified_stop_signal_task_lsl'  # from the Builder filename that created this script
 expInfo = {
     'participant': f"{randint(0, 999999):06.0f}",
     'session': '001',
@@ -2033,7 +2033,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
                     trial_type_outlet.push_sample([trial_type])  # Push trial_type marker.
                     thisExp.addData('corr_resp',corr_resp)
                     thisExp.addData('stop_signal_time',stop_signal_time)
-                    stop_signal_outlet.push_sample('stop_signal') # Push stop_signal marker.
+                    stop_signal_outlet.push_sample(['stop_signal']) # Push stop_signal marker.
             
             if condition == 'go_fast_trial': 
                 trial_type = 'go_fast_trial'
@@ -2183,8 +2183,9 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
                     _key_resp_allKeys.extend(theseKeys)
                     if len(_key_resp_allKeys):
                         key_resp.keys = _key_resp_allKeys[-1].name  # just the last key pressed
+                        resp = ' '.join(map(str,key_resp.keys))    
+                        response_outlet.push_sample([resp])  # Push response marker.
                         key_resp.rt = _key_resp_allKeys[-1].rt
-                        response_outlet.push_sample(["space"])  # Push response time marker.
                         key_resp.duration = _key_resp_allKeys[-1].duration
                         # was this correct?
                         if (key_resp.keys == str(corr_resp)) or (key_resp.keys == corr_resp):
