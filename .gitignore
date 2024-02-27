@@ -1,4 +1,6 @@
 data/
+lsl-data/
+
 
 __pycache__/
 *.pyc
