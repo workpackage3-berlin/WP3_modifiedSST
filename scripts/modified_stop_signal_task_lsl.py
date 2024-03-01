@@ -2137,7 +2137,8 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
                     win.timeOnFlip(stop_signal_triangle, 'tStartRefresh')  # time at next scr refresh
                     # add timestamp to datafile
                     thisExp.timestampOnFlip(win, 'stop_signal_triangle.started')
-                    stop_signal_outlet.push_sample(['stop_signal'])  # Push stop_signal marker
+                    if color_stop == 'white':
+                        stop_signal_outlet.push_sample(['stop_signal'])  # Push stop_signal marker
                     # update status
                     stop_signal_triangle.status = STARTED
                     stop_signal_triangle.setAutoDraw(True)
