@@ -323,6 +323,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
         languageStyle='LTR',
         depth=0.0);
     right_or_left_resp = keyboard.Keyboard()
+
     # Run 'Begin Experiment' code from initialize_LSL_streams
     from pylsl import StreamInfo, StreamOutlet
     
@@ -2194,7 +2195,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
                     if len(_early_press_resp_allKeys):
                         early_press_resp.keys = _early_press_resp_allKeys[-1].name  # just the last key pressed
                         early_press_resp.rt = _early_press_resp_allKeys[-1].rt
-                        behavioral_outlet.push_samples([behavioral_events[1]])
+                        # behavioral_outlet.push_sample([behavioral_events[1]])
                         early_press_resp.duration = _early_press_resp_allKeys[-1].duration
                         # was this correct?
                         if (early_press_resp.keys == str(key_resp)) or (early_press_resp.keys == key_resp):
@@ -2370,14 +2371,16 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
                     win.timeOnFlip(go_rectangle, 'tStartRefresh')  # time at next scr refresh
                     # add timestamp to datafile
                     thisExp.timestampOnFlip(win, 'go_rectangle.started')
+                    """
                     if trial_type == 'go_trial':
-                        screen_outlet.push_samples([screen_events[0]])
+                        screen_outlet.push_sample([screen_events[0]])
                     elif trial_type == 'go_fast_trial':
-                        screen_outlet.push_samples([screen_events[1]])
+                        screen_outlet.push_sample([screen_events[1]])
                     elif trial_type == 'go_continue_trial':
-                        screen_outlet.push_samples([screen_events[2]])
+                        screen_outlet.push_sample([screen_events[2]])
                     elif trial_type == 'stop_trial':
-                        screen_outlet.push_samples([screen_events[3]])
+                        screen_outlet.push_sample([screen_events[3]])
+                    """
                     # update status
                     go_rectangle.status = STARTED
                     go_rectangle.setAutoDraw(True)
@@ -2411,10 +2414,12 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
                     win.timeOnFlip(stop_signal_triangle, 'tStartRefresh')  # time at next scr refresh
                     # add timestamp to datafile
                     thisExp.timestampOnFlip(win, 'stop_signal_triangle.started')
+                    """
                     if trial_type == 'stop_trial':
-                        screen_outlet.push_samples([screen_events[4]])
+                        screen_outlet.push_sample([screen_events[4]])
                     elif trial_type == 'go_continue_trial':
-                        screen_outlet.push_samples([screen_events[5]])
+                        screen_outlet.push_sample([screen_events[5]])
+                    """
                     # update status
                     stop_signal_triangle.status = STARTED
                     stop_signal_triangle.setAutoDraw(True)
@@ -2468,7 +2473,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
                     if len(_key_resp_experiment_allKeys):
                         key_resp_experiment.keys = _key_resp_experiment_allKeys[-1].name  # just the last key pressed
                         key_resp_experiment.rt = _key_resp_experiment_allKeys[-1].rt
-                        behavioral_outlet.push_samples([behavioral_events[0]])
+                        # behavioral_outlet.push_sample([behavioral_events[0]])
                         key_resp_experiment.duration = _key_resp_experiment_allKeys[-1].duration
                         # was this correct?
                         if (key_resp_experiment.keys == str(corr_resp)) or (key_resp_experiment.keys == corr_resp):
