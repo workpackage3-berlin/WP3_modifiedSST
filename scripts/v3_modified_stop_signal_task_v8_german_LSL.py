@@ -1002,7 +1002,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     routineTimer.reset()
     
     # set up handler to look after randomisation of conditions etc
-    trial_loop_training = data.TrialHandler(nReps=12.0, method='sequential', 
+    trial_loop_training = data.TrialHandler(nReps=36.0, method='sequential', 
         extraInfo=expInfo, originPath=-1,
         trialList=[None],
         seed=None, name='trial_loop_training')
@@ -2237,8 +2237,8 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
             trial_loop.addData('early_press_resp.keys',early_press_resp.keys)
             trial_loop.addData('early_press_resp.corr', early_press_resp.corr)
             if early_press_resp.keys != None:  # we had a response
-                trial_loop.addData('early_press_resp.rt', early_press_resp.rt)
                 behavioral_outlet.push_sample(['early'])
+                trial_loop.addData('early_press_resp.rt', early_press_resp.rt)
                 trial_loop.addData('early_press_resp.duration', early_press_resp.duration)
             # the Routine "fixation_period" was not non-slip safe, so reset the non-slip timer
             routineTimer.reset()
@@ -2445,7 +2445,6 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
                     win.timeOnFlip(key_resp_experiment, 'tStartRefresh')  # time at next scr refresh
                     # add timestamp to datafile
                     thisExp.timestampOnFlip(win, 'key_resp_experiment.started')
-                    #behavioral_outlet.push_sample(['resp.started'])
                     # update status
                     key_resp_experiment.status = STARTED
                     # AllowedKeys looks like a variable named `key_resp`
@@ -2459,22 +2458,19 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
                             key_resp = eval(key_resp)
                     # keyboard checking is just starting
                     waitOnFlip = True
-                    behavioral_outlet.push_sample(['resp.started'])
                     win.callOnFlip(key_resp_experiment.clock.reset)  # t=0 on next screen flip
                     win.callOnFlip(key_resp_experiment.clearEvents, eventType='keyboard')  # clear events on next screen flip
                 if key_resp_experiment.status == STARTED and not waitOnFlip:
                     theseKeys = key_resp_experiment.getKeys(keyList=list(key_resp), ignoreKeys=["escape"], waitRelease=False)
                     _key_resp_experiment_allKeys.extend(theseKeys)
-                    behavioral_outlet.push_sample(['resp'])
                     if len(_key_resp_experiment_allKeys):
+                        behavioral_outlet.push_sample(['resp'])
                         key_resp_experiment.keys = _key_resp_experiment_allKeys[-1].name  # just the last key pressed
                         key_resp_experiment.rt = _key_resp_experiment_allKeys[-1].rt
-                        #behavioral_outlet.push_sample(['resp'])
                         key_resp_experiment.duration = _key_resp_experiment_allKeys[-1].duration
                         # was this correct?
                         if (key_resp_experiment.keys == str(corr_resp)) or (key_resp_experiment.keys == corr_resp):
                             key_resp_experiment.corr = 1
-                            behavioral_outlet.push_sample(['resp_corr'])
                         else:
                             key_resp_experiment.corr = 0
                         # a response ends the routine
