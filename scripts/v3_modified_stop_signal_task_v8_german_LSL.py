@@ -2375,7 +2375,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
                     win.timeOnFlip(go_rectangle, 'tStartRefresh')  # time at next scr refresh
                     # add timestamp to datafile
                     thisExp.timestampOnFlip(win, 'go_rectangle.started')
-                    screen_outlet.push_sample(['go_rectangle.started'])
+                    #screen_outlet.push_sample(['go_rectangle.started'])
                     screen_outlet.push_sample([marker_go])                   
                     # update status
                     go_rectangle.status = STARTED
