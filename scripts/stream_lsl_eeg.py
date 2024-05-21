@@ -87,6 +87,7 @@ try:
 
         # Pause for a while to properly close the GUI after completion
         print('\n Wait for a bit while we close the plot... \n')
+        print('\n Saving impedances values in measurements folder under "mSST_impedances-date-time"...')
         time.sleep(1)
 
         print("load recording config")

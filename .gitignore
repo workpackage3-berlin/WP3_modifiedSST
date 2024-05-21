@@ -1,5 +1,8 @@
 data/
 lsl-data/
+measurements/
+
+!measurements/README.md
 
 
 # Byte-compiled / optimized / DLL files
