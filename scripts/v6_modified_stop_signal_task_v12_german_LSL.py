@@ -336,7 +336,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     
     # --- Initialize components for Routine "Task_presentation" ---
     task_presentation_text = visual.TextStim(win=win, name='task_presentation_text',
-        text='In diesem Experiment werden Sie eine modifizierte Stoppsignal-Aufgabe durchführen.\n\nEs gibt 4 Bedingungen, die Ihnen auf dem nächsten Bildschirm präsentiert werden.\nDas Ziel ist es, so schnell wie möglich die Taste zu drücken, wenn Sie ein "Go"-Signal sehen, aber diese Bewegung zu unterlassen, wenn ein "Stop"-Signal nach diesem "Go"-Signal erscheint. \n\nSchnelles Drücken bei einem "Go"-Signal ist genauso wichtig wie das Drücken zu vermeiden bei einem "Stop"-Signal.\n\nDrücken Sie die Taste, um fortzufahren und die verschiedenen Bedingungen zu sehen.',
+        text='In diesem Experiment werden Sie eine modifizierte Stoppsignal-Aufgabe durchführen.\n\nEs gibt 4 Bedingungen, die Ihnen auf dem nächsten Bildschirm präsentiert werden.\nDas Ziel ist es, so schnell wie möglich die Taste zu drücken, wenn Sie ein Quadrat sehen, aber diese Bewegung zu unterlassen, wenn ein "Stop"-Signal nach diesem "Go"-Signal erscheint. \n\nSchnelles Drücken bei einem "Go"-Signal ist genauso wichtig wie das Drücken zu vermeiden bei einem "Stop"-Signal.\n\nDrücken Sie die Taste, um fortzufahren und die verschiedenen Bedingungen zu sehen.',
         font='Calibri',
         pos=(0, 0), height=0.04, wrapWidth=None, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
@@ -1489,7 +1489,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
         else:
             total_score_training = total_score_training
             thisExp.addData('total_score_training',total_score_training)
-            msg = 'zu schnell, bitte warten Sie auf das Go-Signal, bevor Sie drücken'
+            msg = 'zu schnell, bitte warten Sie auf das Quadrat, bevor Sie drücken'
         feedback_text_training.setText(msg)
         # keep track of which components have finished
         feedback_accuracy_trainingComponents = [feedback_text_training]
@@ -2594,7 +2594,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
             else:
                 total_score = total_score
                 thisExp.addData('total_score',total_score)
-                msg = 'zu schnell, bitte warten Sie auf das Go-Signal, bevor Sie drücken'
+                msg = 'zu schnell, bitte warten Sie auf das Quadrat, bevor Sie drücken'
             feedback_text.setText(msg)
             # keep track of which components have finished
             feedback_accuracyComponents = [feedback_text]
