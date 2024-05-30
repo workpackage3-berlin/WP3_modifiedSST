@@ -12,5 +12,5 @@ behavioral_task_env = "psychopy"
 external_device_env = "tmsi"
 
 # Run scripts in their respective environments
-run_script('scripts\\v5_modified_stop_signal_task_v10_german_LSL.py', behavioral_task_env)
+run_script('scripts\\v6_modified_stop_signal_task_v12_german_LSL.py', behavioral_task_env)
 run_script('scripts\\stream_lsl_eeg.py', external_device_env)
