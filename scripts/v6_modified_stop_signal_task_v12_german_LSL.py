@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2023.2.3),
-    on mai 30, 2024, at 09:55
+    on mai 30, 2024, at 10:08
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -877,7 +877,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     # Run 'Begin Routine' code from randomization_block_2
     import random
     
-    n_training_trials = 12
+    n_training_trials = 36
     sequences_length = 6
     # my values
     """
@@ -1960,9 +1960,9 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
         import random
         
         if not HALF_BLOCK:
-            n_trials = 24 #120
+            n_trials = 120
         else:
-            n_trials = 12 #6
+            n_trials = 60
         sequences_length = 6
         
         # similar to Obeso paper:
