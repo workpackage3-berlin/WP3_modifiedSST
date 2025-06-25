@@ -1867,7 +1867,9 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     
     stop_signal_time_array = numpy.array(ssd_training_list)
     mean_ssd = stop_signal_time_array.mean()
-    start_ssd = int(50 * round(mean_ssd/50))
+    print(f'mean SSD {mean_ssd}')
+    start_ssd = 0.05 * round(mean_ssd/0.05)
+    print(f'start SSD {start_ssd}')
     
     
     # the Routine "determine_start_ssd" was not non-slip safe, so reset the non-slip timer
