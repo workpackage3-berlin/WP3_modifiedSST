@@ -2950,20 +2950,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
                 if hasattr(thisComponent, "setAutoDraw"):
                     thisComponent.setAutoDraw(False)
             thisExp.addData('trial.stopped', globalClock.getTime())
-            # Run 'End Routine' code from trial_probability
-            if trial_type == 'stop_trial':
-                last_ssd = ssd
-                if key_resp_experiment.corr:
-                    ssd += 0.05
-                else:
-                    if ssd >= 0.1:
-                        ssd -= 0.05
-                    else: ssd = ssd
-            elif trial_type == 'go_continue_trial':
-                last_ssd = last_ssd
-            
-            
-            
+
             # check responses
             if key_resp_experiment.keys in ['', [], None]:  # No response was made
                 key_resp_experiment.keys = None
@@ -2972,6 +2959,24 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
                    key_resp_experiment.corr = 1;  # correct non-response
                 else:
                    key_resp_experiment.corr = 0;  # failed to respond (incorrectly)
+            
+            # Run 'End Routine' code from trial_probability
+            #print(f'Block {blocks.thisRepN}, trial {trial_loop.thisRepN}')
+            if trial_type == 'stop_trial':
+                last_ssd = ssd
+                #print(f'SSD from this trial: ', {ssd})
+                #print(f'key_resp_experiment.corr: ', {key_resp_experiment.corr})
+                if key_resp_experiment.corr:
+                    ssd += 0.05
+                else:
+                    if ssd >= 0.1:
+                        ssd -= 0.05
+                    else: ssd = ssd
+                #print(f'New SSD: ', {ssd})
+            elif trial_type == 'go_continue_trial':
+                last_ssd = last_ssd
+            
+            
             # store data for trial_loop (TrialHandler)
             trial_loop.addData('key_resp_experiment.keys',key_resp_experiment.keys)
             trial_loop.addData('key_resp_experiment.corr', key_resp_experiment.corr)
@@ -3163,7 +3168,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
             
             if trial_type == 'go_trial' and key_resp_experiment.corr:
                 go_rt.append(key_resp_experiment.rt)
-                print(go_rt)
+            #   print(go_rt)
             
             correct.append(key_resp_experiment.corr)
             n_trial_this_block += 1
